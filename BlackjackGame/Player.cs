@@ -2,8 +2,11 @@
 {
     protected List<Card> hand;
 
+    public int Money { get; set; }
+
     public Player()
     {
+        Money = 100;
         hand = new List<Card>();
     }
 
