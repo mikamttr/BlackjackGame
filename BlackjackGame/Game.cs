@@ -13,17 +13,17 @@
 
     public void Play()
     {
-        // Distribute 2 cards to the player and the dealer
+        // Distribue 2 cartes au joueur et au croupier
         player.ReceiveCard(deck.DealCard());
         dealer.ReceiveCard(deck.DealCard());
         player.ReceiveCard(deck.DealCard());
         dealer.ReceiveCard(deck.DealCard());
 
-        // Display initial hands
+        // Affiche la main de départ
         Console.WriteLine($"Votre main: {player.DisplayHand()}");
         Console.WriteLine($"Le croupier: {dealer.DisplayHand(showAll: false)}");
 
-        // Player's turn
+        // Tour du joueur
         while (player.GetHandValue() < 21)
         {
             Console.Write("Voulez-vous une carte ou arrêter ici (c/s): ");
@@ -41,25 +41,25 @@
             }
         }
 
-        // Dealer's turn
-        dealer.PerformTurn(deck);
+        // Tour du croupier
+        dealer.PlayHisTurn(deck);
 
-        // Display final hands
+        // Affiche la main finale
         Console.WriteLine("______________________________________");
         Console.WriteLine($"Votre main: {player.DisplayHand()}");
         Console.WriteLine($"Le croupier: {dealer.DisplayHand()}");
 
-        // Determine the winner
+        // Determine le gagnant
         int playerValue = player.GetHandValue();
         int dealerValue = dealer.GetHandValue();
 
         if (playerValue > 21 || (dealerValue <= 21 && dealerValue >= playerValue))
         {
-            Console.WriteLine("La maison l'emporte!");
+            Console.WriteLine("Le croupier l'emporte!");
         }
         else
         {
-            Console.WriteLine("Vous avez gagné!");
+            Console.WriteLine("Félicitation !!! vous avez gagné!");
         }
     }
 }

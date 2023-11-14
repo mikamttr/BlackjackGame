@@ -1,6 +1,6 @@
 ﻿class Dealer : Player
 {
-    public void PerformTurn(Deck deck)
+    public void PlayHisTurn(Deck deck)
     {
         while (GetHandValue() < 17)
         {
