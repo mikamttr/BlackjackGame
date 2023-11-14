@@ -11,7 +11,7 @@
         dealer = new Dealer();
     }
 
-    public void Play()
+    public void Start()
     {
         // Distribue 2 cartes au joueur et au croupier
         player.ReceiveCard(deck.DealCard());
@@ -26,16 +26,16 @@
         // Tour du joueur
         while (player.GetHandValue() < 21)
         {
-            Console.Write("Voulez-vous une carte ou arrêter ici (c/s): ");
+            Console.Write("Voulez-vous une carte ou stopper ici (c/s): ");
             char choice = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
-            if (choice == 'c')
+            if (choice == 'c') // pioche une autre carte
             {
                 player.ReceiveCard(deck.DealCard());
                 Console.WriteLine($"Votre main: {player.DisplayHand()}");
             }
-            else if (choice == 's')
+            else if (choice == 's') // garde la main actuelle
             {
                 break;
             }

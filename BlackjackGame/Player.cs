@@ -52,7 +52,7 @@
             if (showAll)
                 handString += $"{card.Value} {card.Symbol}, ";
             else
-                handString += "Carte inconnue, ";
+                handString += "Carte cachée, ";
         }
 
         return handString.Substring(0, handString.Length - 2);
